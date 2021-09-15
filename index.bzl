@@ -97,12 +97,13 @@ ts_proto_library = rule(
         ),
         "protoc_gen_ts_bin": attr.label(
             executable = True,
-            cfg = "exec",
+            cfg = "host",
             default = _get_bin(),
         ),
         "_protoc": attr.label(
+            cfg = "host",
             executable = True,
-            cfg = "exec",
+            allow_single_file = True,
             default = (
                 "@com_google_protobuf//:protoc"
             ),
